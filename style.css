@@ -52,7 +52,19 @@ body, html {
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;  /* ✅ Button font */
+  font-family: 'Orbitron', sans-serif;
+  position: relative; /* so subtext aligns nicely */
+}
+
+.home-button .button-subtext {
+  display: block;
+  font-size: 0.75em;
+  font-weight: normal;
+  color: #2c1d29; /* darker, subtle tone */
+  margin-top: 4px;
+  font-family: 'VT323', monospace;
+  letter-spacing: 1px;
+}
 }
 
 .home-button:hover {
@@ -234,6 +246,14 @@ body.feed-page {
   margin: 20px auto;
   border-radius: 3px;
 }
+.blog-feed .subtitle {
+  margin: 5px 0 0 0;
+  font-size: 0.9em;
+  color: #888; /* muted gray so it doesn’t overpower */
+  font-family: 'VT323', monospace; /* fits your vibe */
+  letter-spacing: 1px;
+}
+
 
 /* ==============================
    MOBILE RESPONSIVE
