@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>spewngbrainsht Feed</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    /* ==============================
+       BLOG FEED + SIDEBARS
+    ============================== */
+    body.blog-feed {
+      background: #0D1112;
+      color: #C8989E;
+      font-family: 'Special Elite', cursive;
+      margin: 0;
+      padding: 0;
+    }
+
+    .blog-feed header {
+      padding: 15px 20px;
+      text-align: center;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      font-size: 1.3em;
+      color: #C8989E;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .blog-feed .back-button {
+      display: inline-block;
+      margin: 10px 20px;
+      color: #C8989E;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .blog-feed .page-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .blog-feed .side-column {
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      position: sticky;
+      top: 80px;
+    }
+
+    .blog-feed .side-item img {
+      width: 100%;
+      border-radius: 4px;
+      transition: transform 0.2s;
+    }
+
+    .blog-feed .side-item img:hover {
+      transform: scale(1.1);
+    }
+
+    .blog-feed .feed-container {
+      flex: 1;
+      max-width: 800px;
+    }
+
+    .blog-feed .post {
+      background: rgba(13,17,18,0.95);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 15px #6eb5ff44, 0 0 25px #b36eff33;
+    }
+
+    .blog-feed .post h2 {
+      margin-top: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4em;
+      color: #8afff7;
+    }
+
+    .blog-feed .post time {
+      font-size: 0.9em;
+      color: #777;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .blog-feed .post p {
+      margin: 15px 0;
+    }
+
+    .blog-feed .post img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 15px auto;
+      border-radius: 6px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 900px) {
+      .blog-feed .side-column { display: none; }
+      .blog-feed .feed-container { max-width: 95%; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body class="blog-feed">
+
+  <header>
+    <a href="index.html" class="back-button">← home</a>
+    <h1>spewngbrainsht</h1>
+<p class="subtitle">CERTIFIABLY WORSE THAN DOOMSCROLLING</p>
+
+  </header>
+
+  <div class="page-container">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="side-column left" id="leftSidebar"></div>
+
+    <!-- MAIN BLOG FEED -->
+    <div class="feed-container">
+
+      <!-- Example Post -->
+      <div class="post">
+        <h2>Introduction/test post</h2>
+        <time>September 9, 2025</time>
+        <p>
+          Hello. This page will likely be filled with ramblings and offputting streams of consciousness, or maybe something really REALLY cool? LITERALLY NO ONE KNOWS!
+        </p>
+        <img src="images/blog1.gif" alt="Example Image">
+        <p>
+	I'm creating this because sometimes I want to share things, or archive them, but... publicly? Like I could access them from any device, and you could too, but, still its not so public that lots of people will see this, Im sure just a few. I DONT KNOW, ITS A BLOG I GUESS? Pretentious as always, thinking my thoughts are worth posting online? Well, I dont really think they're worth anything, and I dont care if not a soul sees it. I like my creations living in a dark corner on the internet. Not because its edgy, but because its antisocial, and probably thinks it should've never been born. I dont know though, this is all a guess, go ask it for yourself.
+            </p>
+      </div>
+
+      
+
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="side-column right" id="rightSidebar"></div>
+
+  </div>
+
+  <script>
+    // Arrays of sidebar images
+    const funnyImgs = [
+      "images/funny1.gif","images/funny2.gif","images/funny3.png","images/funny4.gif","images/funny5.png",
+      "images/funny6.png","images/funny7.gif","images/funny8.gif","images/funny9.gif","images/funny10.png",
+      "images/funny11.jpg","images/funny12.gif","images/funny13.gif","images/funny14.png","images/funny15.gif",
+      "images/funny16.png","images/funny17.gif","images/funny18.png","images/funny19.gif"
+    ];
+    const coolImgs = [
+      "images/cool1.gif","images/cool2.png","images/cool3.gif","images/cool4.gif","images/cool5.gif",
+      "images/cool6.png","images/cool7.png","images/cool8.gif","images/cool9.gif","images/cool10.png",
+      "images/cool11.png","images/cool12.gif","images/cool13.png","images/cool14.gif","images/cool15.png",
+      "images/cool16.gif","images/cool17.gif","images/cool18.png","images/cool19.png"
+    ];
+
+    // Shuffle helper
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    // Fill sidebars
+    function fillSidebar(sidebarId, images) {
+      const sidebar = document.getElementById(sidebarId);
+      shuffle(images).forEach(src => {
+        const div = document.createElement("div");
+        div.className = "side-item";
+        const img = document.createElement("img");
+        img.src = src;
+        div.appendChild(img);
+        sidebar.appendChild(div);
+      });
+    }
+
+    fillSidebar("leftSidebar", funnyImgs);
+    fillSidebar("rightSidebar", coolImgs);
+  </script>
+
+</body>
+</html>
