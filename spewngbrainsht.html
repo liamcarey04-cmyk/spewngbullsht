@@ -125,9 +125,6 @@
 
   <div class="page-container">
 
-    <!-- LEFT SIDEBAR -->
-    <div class="side-column left" id="leftSidebar"></div>
-
     <!-- MAIN BLOG FEED -->
     <div class="feed-container">
 		
@@ -209,50 +206,14 @@ then im the cat bitch                </p>
 
     </div>
 
-    <!-- RIGHT SIDEBAR -->
-    <div class="side-column right" id="rightSidebar"></div>
-
   </div>
 
   <script>
-    // Arrays of sidebar images
-    const funnyImgs = [
-      "images/funny1.gif","images/funny2.gif","images/funny3.png","images/funny4.gif","images/funny5.png",
-      "images/funny6.png","images/funny7.gif","images/funny8.gif","images/funny9.gif","images/funny10.png",
-      "images/funny11.jpg","images/funny12.gif","images/funny13.gif","images/funny14.png","images/funny15.gif",
-      "images/funny16.png","images/funny17.gif","images/funny18.png","images/funny19.gif"
-    ];
-    const coolImgs = [
-      "images/cool1.gif","images/cool2.png","images/cool3.gif","images/cool4.gif","images/cool5.gif",
-      "images/cool6.png","images/cool7.png","images/cool8.gif","images/cool9.gif","images/cool10.png",
-      "images/cool11.png","images/cool12.gif","images/cool13.png","images/cool14.gif","images/cool15.png",
-      "images/cool16.gif","images/cool17.gif","images/cool18.png","images/cool19.png"
-    ];
-
-    // Shuffle helper
-    function shuffle(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
-
-    // Fill sidebars
-    function fillSidebar(sidebarId, images) {
-      const sidebar = document.getElementById(sidebarId);
-      shuffle(images).forEach(src => {
-        const div = document.createElement("div");
-        div.className = "side-item";
-        const img = document.createElement("img");
-        img.src = src;
-        div.appendChild(img);
-        sidebar.appendChild(div);
-      });
-    }
-
-    fillSidebar("leftSidebar", funnyImgs);
-    fillSidebar("rightSidebar", coolImgs);
-  </script>
+   
 
 </body>
 </html>
+
 
 
 
