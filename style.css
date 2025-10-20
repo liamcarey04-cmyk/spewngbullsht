@@ -1,83 +1,269 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpewngBullsht Homepage</title>
+/* ============================== GENERAL PAGE STYLING ============================== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* fallback */
+}
 
-  <link rel="stylesheet" href="style.css">
+/* ============================== HOMEPAGE STYLING ============================== */
+.homepage {
+  background: url('images/home-background.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+.home-box {
+  background: rgba(13, 17, 18, 0.95);
+  color: #C8989E;
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
 
-  <style>
-    .about-box {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      background: white;
-      color: black;
-      padding: 6px 10px;
-      font-family: 'VT323', monospace;
-      font-size: 14px;
-      border-radius: 4px;
-      text-decoration: none;
-      box-shadow: 0 0 4px rgba(0,0,0,0.3);
-      z-index: 1;
-    }
+  /* Animations */
+  animation: subtle-jitter 0.8s ease-in-out infinite,
+             teleport-glitch 6s infinite,
+             box-flicker 1.2s infinite;
+}
 
-    .about-box:hover {
-      background: #f0f0f0;
-    }
-  </style>
-</head>
+.home-box h1 {
+  font-family: 'VT323', doublespace;
+  font-size: 3.1em;
+  margin-bottom: 20px;
+  animation: glitch-flicker 0.6s linear infinite;
+  letter-spacing: 6px; /* ✅ adjust this value to taste */
+}
 
-<body>
-  <div class="homepage">
-    <div class="home-box">
-      <h1>WELCOME BACK TO DYSTOPIA</h1>
+.home-button {
+  display: inline-block;
+  margin: 15px;
+  padding: 10px 30px;
+  background: #C8989E;
+  color: #5C3A54;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  font-family: 'Orbitron', sans-serif;
+  position: relative; /* so subtext aligns nicely */
+}
 
-      <a href="spewngbullsht.html" class="home-button">
-        spewngbullsht
-        <span class="button-subtext">photocopied street trash</span>
-      </a>
+.home-button .button-subtext {
+  display: block;
+  font-size: 0.75em;
+  font-weight: normal;
+  color: #2c1d29; /* darker, subtle tone */
+  margin-top: 4px;
+  font-family: 'VT323', monospace;
+  letter-spacing: 1px;
+}
 
-      <a href="spewngbrainsht.html" class="home-button hidden">
-        spewngbrainsht
-        <span class="button-subtext">rambling alphabet soup (BLOG)</span>
-      </a>
-    </div>
-  </div>
+.home-button:hover {
+  background: #4b4b4b;
+}
 
-  <!-- About Someone box -->
-  <a href="ABOUTSOMEONE.html" class="about-box">ABOUT SOMEONE</a>
+/* ============================== ANIMATIONS ============================== */
+@keyframes subtle-jitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-0.5px, 0.5px); }
+  50% { transform: translate(0.5px, -0.5px); }
+  75% { transform: translate(-0.5px, -0.5px); }
+  100% { transform: translate(0, 0); }
+}
 
-  <!-- World's Slowest DJ box -->
-  <a href="worlds-slowest-dj.html" class="about-box dj-box">WORLDS SLOWEST DJ</a>
+@keyframes teleport-glitch {
+  0%, 85% { transform: translate(0, 0); }
+  86% { transform: translate(-200px, -100px); }
+  87% { transform: translate(300px, 150px); }
+  88% { transform: translate(-250px, 200px); }
+  89% { transform: translate(150px, -200px); }
+  90%, 100% { transform: translate(0, 0); }
+}
 
-  <style>
-    .about-box {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      background: white;
-      color: black;
-      padding: 6px 10px;
-      font-family: 'VT323', monospace;
-      font-size: 14px;
-      border-radius: 4px;
-      text-decoration: none;
-      box-shadow: 0 0 4px rgba(0,0,0,0.3);
-    }
+@keyframes glitch-flicker {
+  0% { text-shadow: 1px 0 red, -1px 0 cyan; }
+  25% { text-shadow: -1px 0 red, 1px 0 cyan; }
+  50% { text-shadow: 1px 0 blue, -1px 0 magenta; }
+  75% { text-shadow: -1px 0 lime, 1px 0 yellow; }
+  100% { text-shadow: none; }
+}
 
-    .about-box:hover {
-      background: #f0f0f0;
-    }
+@keyframes box-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    box-shadow: 0 0 15px #8afff7, 0 0 25px #6eb5ff, 0 0 40px #b36eff;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+  20%, 24%, 55% {
+    box-shadow: 0 0 20px #ff6eff, 0 0 35px #6efff7, 0 0 50px #6e9fff;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  40%, 42% {
+    box-shadow: 0 0 8px #d6f7ff, 0 0 25px #6efff7, 0 0 35px #9f6eff;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
 
-    /* Push DJ box slightly above the About Someone box */
-    .dj-box {
-      bottom: 50px;
-    }
-  </style>
-</body>
-</html>
+/* ============================== FEED PAGE STYLING ============================== */
+body.feed-page {
+  background: #0D1112;
+  color: #5C3A54;
+  margin: 0;
+  padding: 0;
+}
+
+.feed-page header {
+  padding: 10px 20px;
+  text-align: center;
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: 1.2em;
+  color: #C8989E;
+  font-family: 'Orbitron', sans-serif; /* ✅ Feed title font */
+}
+
+.feed-page .back-button {
+  display: inline-block;
+  margin: 10px 20px;
+  color: #C8989E;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif; /* ✅ Back button font */
+}
+
+/* ============================== PAGE LAYOUT WITH OPTIONAL SIDEBARS ============================== */
+.feed-page .page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.feed-page .side-column {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: sticky;
+  top: 20px;
+}
+
+.feed-page .side-item img {
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+.feed-page .side-item img:hover {
+  transform: scale(1.1);
+}
+
+.feed-page .main-feed {
+  flex: 1;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ============================== POSTS ============================== */
+.feed-page .post {
+  width: 150px;
+  height: 250px;
+  margin: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.feed-page .post:hover {
+  filter: brightness(1.1);
+}
+
+.feed-page .post-cover {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.feed-page .post-content {
+  display: none;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 17, 18, 0.95);
+  color: #5C3A54;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: 'Special Elite', cursive; /* ✅ Post text font */
+}
+
+.feed-page .post.enlarged {
+  width: 80%;
+  height: 80vh;
+  z-index: 20;
+}
+
+.feed-page .post.enlarged .post-content {
+  display: block;
+}
+
+.feed-page .post.enlarged .post-cover {
+  display: none;
+}
+
+.feed-page .post-content img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 3px;
+}
+
+.blog-feed .subtitle {
+  margin: 5px 0 0 0;
+  font-size: 0.9em;
+  color: #888; /* muted gray so it doesn’t overpower */
+  font-family: 'VT323', monospace; /* fits your vibe */
+  letter-spacing: 1px;
+}
+
+/* ============================== MOBILE RESPONSIVE ============================== */
+@media (max-width: 600px) {
+  .feed-page .side-column {
+    display: none;
+  }
+
+  .feed-page .main-feed {
+    max-width: 95%;
+  }
+
+  .feed-page .post {
+    width: 80%;
+    height: 200px;
+  }
+
+  .feed-page .post.enlarged {
+    width: 90%;
+    height: 70vh;
+  }
+
+  .feed-page header {
+    padding: 8px 15px;
+    font-size: 1em;
+  }
+}
+
