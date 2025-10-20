@@ -1,264 +1,83 @@
-/* ============================== GENERAL PAGE STYLING ============================== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif; /* fallback */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpewngBullsht Homepage</title>
 
-/* ============================== HOMEPAGE STYLING ============================== */
-.homepage {
-  background-color: #f6f3ee; /* bone-white base */
-  background-image: url('images/paper-texture.png'); /* subtle paper grain */
-  background-size: cover;
-  background-repeat: repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  color: #1a1a1a; /* near-black text */
-}
+  <link rel="stylesheet" href="style.css">
 
-.home-box {
-  background: rgba(245, 243, 238, 0.85); /* slightly transparent bone tint */
-  color: #1a1a1a;
-  padding: 25px;
-  text-align: center;
-  border-radius: 10px;
-  border: 2px solid rgba(20, 20, 20, 0.2);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  position: relative;
-  z-index: 1;
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
 
-  /* subtle paper flicker + glitch */
-  animation: subtle-jitter 0.8s ease-in-out infinite,
-             teleport-glitch 6s infinite,
-             paper-flicker 2.2s infinite;
-}
+  <style>
+    .about-box {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      background: white;
+      color: black;
+      padding: 6px 10px;
+      font-family: 'VT323', monospace;
+      font-size: 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+      z-index: 1;
+    }
 
-.home-box h1 {
-  font-family: 'VT323', monospace;
-  font-size: 3.1em;
-  margin-bottom: 20px;
-  color: #0f0f0f;
-  letter-spacing: 6px;
-  animation: ink-flicker 1.5s steps(2, end) infinite;
-}
+    .about-box:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
 
-.home-button {
-  display: inline-block;
-  margin: 15px;
-  padding: 10px 30px;
-  background: #1a1a1a;
-  color: #f6f3ee;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;
-  position: relative;
-  border: 1px solid rgba(0,0,0,0.2);
-}
+<body>
+  <div class="homepage">
+    <div class="home-box">
+      <h1>WELCOME BACK TO DYSTOPIA</h1>
 
-.home-button .button-subtext {
-  display: block;
-  font-size: 0.75em;
-  font-weight: normal;
-  color: #333;
-  margin-top: 4px;
-  font-family: 'VT323', monospace;
-  letter-spacing: 1px;
-}
+      <a href="spewngbullsht.html" class="home-button">
+        spewngbullsht
+        <span class="button-subtext">photocopied street trash</span>
+      </a>
 
-.home-button:hover {
-  background: #3a3a3a;
-}
+      <a href="spewngbrainsht.html" class="home-button hidden">
+        spewngbrainsht
+        <span class="button-subtext">rambling alphabet soup (BLOG)</span>
+      </a>
+    </div>
+  </div>
 
-/* ============================== HOMEPAGE ANIMATIONS ============================== */
-@keyframes subtle-jitter {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-0.5px, 0.5px); }
-  50% { transform: translate(0.5px, -0.5px); }
-  75% { transform: translate(-0.5px, -0.5px); }
-  100% { transform: translate(0, 0); }
-}
+  <!-- About Someone box -->
+  <a href="ABOUTSOMEONE.html" class="about-box">ABOUT SOMEONE</a>
 
-@keyframes teleport-glitch {
-  0%, 85% { transform: translate(0, 0); }
-  86% { transform: translate(-20px, -10px); }
-  87% { transform: translate(30px, 15px); }
-  88% { transform: translate(-25px, 20px); }
-  89% { transform: translate(15px, -20px); }
-  90%, 100% { transform: translate(0, 0); }
-}
+  <!-- World's Slowest DJ box -->
+  <a href="worlds-slowest-dj.html" class="about-box dj-box">WORLDS SLOWEST DJ</a>
 
-@keyframes ink-flicker {
-  0%, 20%, 100% { opacity: 1; text-shadow: 1px 1px #aaa; }
-  10%, 25%, 90% { opacity: 0.95; text-shadow: 1px 1px #ccc; }
-  50%, 70% { opacity: 0.8; text-shadow: 0 0 1px #999; }
-}
+  <style>
+    .about-box {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      background: white;
+      color: black;
+      padding: 6px 10px;
+      font-family: 'VT323', monospace;
+      font-size: 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
 
-@keyframes paper-flicker {
-  0%, 100% { background-color: rgba(245, 243, 238, 0.85); }
-  50% { background-color: rgba(240, 238, 233, 0.9); }
-}
+    .about-box:hover {
+      background: #f0f0f0;
+    }
 
-/* ============================== FEED PAGE STYLING (UNCHANGED) ============================== */
-body.feed-page {
-  background: #0D1112;
-  color: #5C3A54;
-  margin: 0;
-  padding: 0;
-}
-
-.feed-page header {
-  padding: 10px 20px;
-  text-align: center;
-  background: #111;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  font-size: 1.2em;
-  color: #C8989E;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.feed-page .back-button {
-  display: inline-block;
-  margin: 10px 20px;
-  color: #C8989E;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: 'Orbitron', sans-serif;
-}
-
-/* ============================== PAGE LAYOUT WITH OPTIONAL SIDEBARS ============================== */
-.feed-page .page-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 10px 20px;
-}
-
-.feed-page .side-column {
-  width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  position: sticky;
-  top: 20px;
-}
-
-.feed-page .side-item img {
-  width: 100%;
-  transition: transform 0.2s;
-}
-
-.feed-page .side-item img:hover {
-  transform: scale(1.1);
-}
-
-.feed-page .main-feed {
-  flex: 1;
-  max-width: 800px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* ============================== POSTS ============================== */
-.feed-page .post {
-  width: 150px;
-  height: 250px;
-  margin: 15px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.feed-page .post:hover {
-  filter: brightness(1.1);
-}
-
-.feed-page .post-cover {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
-}
-
-.feed-page .post-content {
-  display: none;
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(13,17,18,0.95);
-  color: #5C3A54;
-  overflow-y: auto;
-  box-sizing: border-box;
-  font-family: 'Special Elite', cursive;
-}
-
-.feed-page .post.enlarged {
-  width: 80%;
-  height: 80vh;
-  z-index: 20;
-}
-
-.feed-page .post.enlarged .post-content {
-  display: block;
-}
-
-.feed-page .post.enlarged .post-cover {
-  display: none;
-}
-
-.feed-page .post-content img {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 3px;
-}
-
-.blog-feed .subtitle {
-  margin: 5px 0 0 0;
-  font-size: 0.9em;
-  color: #888;
-  font-family: 'VT323', monospace;
-  letter-spacing: 1px;
-}
-
-/* ============================== MOBILE RESPONSIVE ============================== */
-@media (max-width: 600px) {
-  .feed-page .side-column {
-    display: none;
-  }
-
-  .feed-page .main-feed {
-    max-width: 95%;
-  }
-
-  .feed-page .post {
-    width: 80%;
-    height: 200px;
-  }
-
-  .feed-page .post.enlarged {
-    width: 90%;
-    height: 70vh;
-  }
-
-  .feed-page header {
-    padding: 8px 15px;
-    font-size: 1em;
-  }
-}
+    /* Push DJ box slightly above the About Someone box */
+    .dj-box {
+      bottom: 50px;
+    }
+  </style>
+</body>
+</html>
